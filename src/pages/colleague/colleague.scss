@@ -1,0 +1,9 @@
+page-colleague {
+    .profileHeader ion-navbar.toolbar-wp, .profileHeader.header-ios .toolbar-ios:last-child .toolbar-background-ios {
+            border-bottom: 0px;
+        } 
+        .profileHeader.header-md::after{
+            background: none;
+        }
+
+}

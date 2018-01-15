@@ -1,0 +1,106 @@
+<ion-split-pane when="md">
+
+  <!-- logged out menu -->
+  <ion-menu id="loggedOutMenu" [content]="content" small >
+
+    <ion-header>
+      <ion-toolbar >
+        <ion-title></ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="outer-content" >
+
+      <ion-list no-lines>
+        <ion-list-header>
+          Navigate
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+
+      <ion-list no-lines>
+        <ion-list-header>
+          Account
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+
+        <button menuClose ion-item (click)="onLogoutClick()">
+            <ion-icon item-left [name]="'log-out'"></ion-icon>
+            Log Out
+          </button>
+      </ion-list>
+
+      <ion-list no-lines>
+        <ion-list-header>
+          Tour
+        </ion-list-header>
+        <button ion-item menuClose (click)="openTour()">
+          <ion-icon item-start name="hammer" color="light"></ion-icon>
+          Show Tour
+        </button>
+
+        
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- logged in menu -->
+  <ion-menu id="loggedInMenu" [content]="content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="outer-content">
+
+      <ion-list no-lines>
+        <ion-list-header>
+          Navigate
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+
+      <ion-list no-lines>
+        <ion-list-header>
+          Account
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+        <button menuClose ion-item (click)="onLogoutClick()">
+          <ion-icon item-left [name]="'log-out'"></ion-icon>
+          Log Out
+        </button>
+      </ion-list>
+
+      <ion-list no-lines >
+        <ion-list-header >
+          Tour
+        </ion-list-header>
+        <button ion-item menuClose (click)="openTour()">
+          <ion-icon item-start name="hammer"></ion-icon>
+          Show Tour
+        </button>
+      </ion-list>
+
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- main navigation -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+
+</ion-split-pane>

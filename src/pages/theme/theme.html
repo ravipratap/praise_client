@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar >
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>theming</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+ <h3>Change the theme</h3>
+ <button ion-button (click)="changeTheme('theme-default')">Default</button>
+ <button ion-button color="primary" (click)="changeTheme('theme-dark')">Dark</button>
+ <button ion-button (click)="changeTheme('theme-insta')">instagram</button>
+ <button ion-button color="secondary" (click)="changeTheme('theme-greenblue')">greenblue</button>
+ <button ion-button color="light" (click)="changeTheme('theme-tinder')">tinder</button>
+ <button ion-button color="light" (click)="changeTheme('theme-deepblue')">Deep Blue</button>
+ <button ion-button color="secondary" (click)="changeTheme('theme-sunset')">sunset</button>
+ <button ion-button color="secondary" (click)="changeTheme('theme-slack')">Slack</button>
+ <button ion-button color="secondary" (click)="changeTheme('theme-greenery')">Greenery</button>
+
+</ion-content>

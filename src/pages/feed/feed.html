@@ -1,0 +1,97 @@
+<!--
+  Generated template for the FeedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Praises</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-card>
+        <ion-card-header no-padding padding-horizontal  padding-top> 
+            <p class="subdued-color" text-wrap><ion-icon name="warning"></ion-icon> Recognize doctors and/or health providers today</p>
+          </ion-card-header>   
+          <progress-bar [progress]="loadProgress"></progress-bar>
+        <ion-card-content text-center no-padding>
+            <button ion-button  clear (click)="viewScore()">View Challenge progress</button>
+        </ion-card-content>
+      </ion-card>
+  
+    
+  <!-- Cards -->
+  <ion-grid>
+    <ion-card padding-bottom class="card" *ngFor="let praise of praises">
+      
+      <ion-row>
+        <ion-col col-10>
+          <ion-item>
+            <ion-avatar item-left>
+                <img src="{{baseUrl+praise.from.thumbnail}}">
+            </ion-avatar>
+            <h2 style="font-weight: bold">{{praise.from.name}}</h2>
+            <p><b>{{praise.to.name}} : </b>{{praise.note}}</p>
+        
+      </ion-item>
+        </ion-col >
+        <ion-col col-2>
+          <button no-margin no-padding clear color="black" ion-button icon-only style="float: right; top: 15px">
+            <ion-icon name="more"></ion-icon>
+        </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <ion-avatar item-left *ngIf="praise.where.picture_url">
+                  <img src="{{praise.where.picture_url}}">
+              </ion-avatar>
+              <h2 ><ion-icon name="pin" *ngIf="!praise.where.picture_url"></ion-icon> {{praise.where.name}}</h2>
+        </ion-item>
+          </ion-col >
+        </ion-row>
+      
+
+      <img src="{{baseUrl+praise.picture_name}}" >
+
+      <p no-margin no-padding>
+        <button clear ion-button icon-only  class="like-btn">
+          <ion-icon no-padding class="icon-space"></ion-icon>
+        </button>
+        <button clear ion-button icon-only>
+          <ion-icon no-padding isActive="false" color="black" name="ios-text-outline" class="icon-space" style="font-weight: bold"></ion-icon>
+        </button>
+        <button clear ion-button icon-only>
+          <ion-icon no-padding isActive="false" color="black" name="paper-plane" class="icon-space"></ion-icon>
+        </button>
+        <button no-margin no-padding clear color="black" ion-button icon-only style="float: right">
+          <ion-icon name="ios-bookmark-outline"></ion-icon>
+        </button>
+      </p>
+      <hr>
+
+      <ion-card-content>
+        <p class="like-content"><ion-icon name="heart"></ion-icon> 250 likes</p>
+        <p><b>techcrunch</b> Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+      
+        <ion-note style="font-size: 12px">
+          11h ago
+        </ion-note>
+      </ion-card-content>
+      
+    </ion-card>
+    </ion-grid>
+
+</ion-content>

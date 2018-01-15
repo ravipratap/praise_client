@@ -1,0 +1,88 @@
+<!--
+  Generated template for the RecognizePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-toolbar> 
+      
+        <ion-buttons start left>
+            <button ion-button icon-only navPop>
+              <ion-icon name="close"></ion-icon>
+            </button>
+          </ion-buttons>
+          
+          <ion-title text-center *ngIf="venue"> <ion-icon name="pin"></ion-icon> {{venue.name}}</ion-title>
+        
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="praiseForm" novalidate (ngSubmit)="onSubmit()" class="gridForm" enctype="multipart/form-data">
+      <ion-list no-lines>
+        <ion-grid nopadding>
+          <ion-row>
+            <ion-col  col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+             <ion-item >
+                <ion-label> 
+                  <ion-icon name="person" ></ion-icon>
+                </ion-label>
+                <!-- <ion-label floating color="primary">First Name</ion-label> -->
+                <ion-input class="form-control" formControlName="person" type="text" required placeholder="Any specific person?">
+                </ion-input>
+              </ion-item>
+              <p ion-text *ngIf="formErrors.person && submitted" color="danger" padding-left>
+                {{ formErrors.person }}
+              </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col  col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+            <ion-item >
+                <!-- <ion-label floating color="primary">First Name</ion-label> -->
+                <button *ngIf="!showNoteInput" ion-button color="light" clear (click)="addNoteInput()">add a thank you note!!</button>
+                <ion-textarea  *ngIf="showNoteInput" class="form-control" formControlName="note"  rows=3 placeholder="Write a thank you note">
+                </ion-textarea>
+              </ion-item>
+              <p ion-text *ngIf="formErrors.note && submitted" color="danger" padding-left>
+                {{ formErrors.note }}
+              </p>
+            </ion-col>
+          </ion-row>
+  
+          <ion-row align-items-center>
+            <ion-col col-lg-4 col-xl-4 offset-lg-2 offset-xl-2>
+             <ion-item text-wrap>
+                <input type="file"  #picture  class="inputfile" name="picture" id="picture" />
+                <!-- name="picture" id="picture" class="inputfile" -->
+                <label  for="picture" ><ion-icon name="camera"></ion-icon> Photo</label>
+              </ion-item>
+            </ion-col>
+            <ion-col col-lg-4 col-xl-4 >
+              <ion-item>
+                <ion-buttons end right>
+                  <button ion-button icon-only color="secondary">
+                    <ion-icon name="happy" class="emoticon"></ion-icon>
+                  </button>
+                </ion-buttons>
+              </ion-item>
+            </ion-col>  
+          </ion-row>
+          <ion-row>
+            <ion-col col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+                <button ion-button  type="submit" block color="secondary"> Say Thanks</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+       
+  
+      </ion-list>
+      
+    </form>
+  
+
+</ion-content>

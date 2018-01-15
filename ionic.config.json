@@ -1,5 +1,28 @@
 {
   "name": "praiseClient",
   "app_id": "",
-  "type": "ionic-angular"
+  "proxies": [  
+    {
+      "path": "/api/foursquare/venues",
+      "proxyUrl": "https://api.foursquare.com/v2/venues"
+
+    },
+    {
+      "path": "/api/facebook/graph",
+      "proxyUrl": "https://graph.facebook.com/v2.11"
+
+    },
+    {
+      "path": "/api/google/nearby",
+      "proxyUrl": "https://maps.googleapis.com/maps/api/place/nearbysearch"
+    }, 
+    {
+      "path": "/api/google/contacts",
+      "proxyUrl": "https://www.google.com/m8/feeds/contacts"
+    }
+  ],
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

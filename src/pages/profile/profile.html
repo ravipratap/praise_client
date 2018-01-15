@@ -1,0 +1,74 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{user.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <ion-list no-lines>
+        <ion-grid nopadding>
+            <form [formGroup]="profileForm" novalidate (ngSubmit)="onSubmit()" class="gridForm" enctype="multipart/form-data">
+         
+            <ion-row>
+              <ion-col col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+                  <input type="file"  #picture  class="inputfile" name="picture" id="picture" />
+                  <!-- name="picture" id="picture" class="inputfile" -->
+                  <label  for="picture" ><ion-icon name="camera"></ion-icon> Photo</label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+                  <button ion-button  type="submit" block color="secondary"> Upload Picture</button>
+              </ion-col>
+            </ion-row>   
+          </form>
+          <ion-row padding>
+              <!-- Avatar -->
+              <ion-col col-12>
+                      <ion-item>
+                        <img src="{{profileImageUrl}}" alt=""/>
+                      </ion-item>
+              </ion-col>
+          </ion-row>
+
+          <ion-row padding>
+              <!-- Avatar -->
+              <ion-col col-3>
+                      <ion-item>
+                        <ion-avatar item-start>
+                            <ion-img src="{{profileImageUrl}}" alt=""> </ion-img>
+                        </ion-avatar>
+                      </ion-item>
+              </ion-col>
+              <!-- Information about user -->
+              <ion-col col-3 text-center >
+                <h6>21</h6>
+                <p no-padding no-margin>Thanks</p>
+              </ion-col>
+              <ion-col col-3 text-center>
+                <h6>114</h6>
+                <p no-paddin no-margin>following</p>
+              </ion-col>
+              <ion-col col-3 text-center>
+                <h6>8</h6>
+                <p no-paddin no-margin>Badges</p>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+       
+  
+      </ion-list>
+
+</ion-content>

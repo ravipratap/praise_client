@@ -1,0 +1,93 @@
+<!--
+  Generated template for the ScorePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    
+    <ion-title>Challenges</ion-title>
+
+    <ion-buttons end right >
+        <button ion-button icon-only (click)="addChallenge()">
+          <ion-icon name="create"></ion-icon>
+        </button>
+      </ion-buttons> 
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <ion-grid>
+        <ion-row padding class="profileHeader">
+          <!-- Avatar -->
+          <ion-col col-4 text-center>
+            
+              <h6>5</h6>
+              <p no-paddin no-margin>Challenges</p>
+          </ion-col>
+          <!-- Information about user -->
+          <ion-col col-4 text-center >
+            <h6>10</h6>
+            <p no-padding no-margin>Badges</p>
+          </ion-col>
+          <ion-col col-4 text-center>
+            <h6>114</h6>
+            <p no-paddin no-margin>Thanks</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+            <ion-list>
+              <ion-list-header>
+                Basic
+              </ion-list-header>
+              <ion-item>
+                <ion-toggle  checked="false" item-start></ion-toggle>
+                <ion-label>
+                  <h2>7 Day Plan</h2>
+                  <p>thank strangers in all possible ways</p>
+                </ion-label>
+                <button ion-button clear item-end>View</button>
+              </ion-item>
+              <ion-item>
+                <ion-toggle checked="true" item-start></ion-toggle>
+                
+                <ion-label>
+                    <h2>365 Day Plan</h2>
+                    <p>thank new everyday for a year</p>
+                  </ion-label>
+                <button ion-button clear item-end>View</button>
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-list-header>
+                  Intermediate
+                </ion-list-header>
+                <ion-item>
+                  <ion-toggle disabled checked="false" item-start></ion-toggle>
+                  <ion-label>
+                    <h2>7 Day Plan</h2>
+                    <p>thank strangers</p>
+                  </ion-label>
+                  <button ion-button clear item-end>View</button>
+                </ion-item>
+                <ion-item>
+                  <ion-toggle disabled checked="false" item-start></ion-toggle>
+                  
+                  <ion-label>
+                      <h2>365 Day Plan</h2>
+                      <p>thank strangers</p>
+                    </ion-label>
+                  <button ion-button clear item-end>View</button>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+</ion-content>

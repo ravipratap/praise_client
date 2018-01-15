@@ -1,0 +1,23 @@
+page-profile {
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    .inputfile + label {
+        cursor: pointer; /* "hand" cursor */
+        font-size: 1.3em;
+        height: 2.7rem;
+        font-weight: 700;
+        background-color: transparent;
+        display: inline-block;
+    }
+    
+    .inputfile + label * {
+        pointer-events: none;
+    }
+
+}

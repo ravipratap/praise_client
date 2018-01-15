@@ -1,0 +1,17 @@
+page-tabs {
+    .tab-button .ion-md-add-circle, .tab-button .ion-ios-add-circle-outline, , .tab-button .ion-ios-add-circle, .tab-button .ion-wp-add-circle  {
+        font-size: 4.6rem;
+    }
+    .tab-button-icon.ion-md-add-circle, .tab-button-icon.ion-ios-add-circle , .tab-button-icon.ion-ios-add-circle-outline , .tab-button-icon.ion-wp-add-circle {
+        height: 4.6rem;
+    }
+    .tab-button .ion-ios-add-circle-outline:before {
+        content: "\f101";
+    }
+    .tabs-md .tab-button {
+        min-height: 4.8rem;
+    }
+    .tabs-wp .tab-button {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,137 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    
+      <ion-navbar >
+        <button ion-button menuToggle >
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title text-center>Join now</ion-title>
+      </ion-navbar> 
+    
+    </ion-header>
+    
+    
+    <ion-content padding > 
+      <form [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit()" class="gridForm">
+        <ion-list >
+          <ion-grid nopadding>
+            <ion-row>
+              <ion-col col-lg-4 col-xl-4 offset-lg-2 offset-xl-2>
+               <ion-item >
+                  <ion-label> 
+                    <ion-icon name="person" ></ion-icon>
+                  </ion-label>
+                  <!-- <ion-label floating color="primary">First Name</ion-label> -->
+                  <ion-input class="form-control" formControlName="firstName" type="text" required placeholder="First Name">
+                  </ion-input>
+                </ion-item>
+                <p ion-text *ngIf="formErrors.firstName && submitted" color="danger" padding-left>
+                  {{ formErrors.firstName }}
+                </p>
+              </ion-col>
+              <ion-col col-lg-4 col-xl-4 class="rightCell">
+                <ion-item>
+                  <!-- <ion-label floating color="primary">Last Name</ion-label> -->
+                  <ion-input class="form-control" formControlName="lastName" type="text"  placeholder="Last Name">
+                  </ion-input>
+                </ion-item>
+                <p ion-text *ngIf="formErrors.lastName && submitted" color="danger" padding-left>
+                  {{ formErrors.lastName }}
+                </p>
+              </ion-col> 
+            </ion-row>
+            <ion-row>
+              <ion-col col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+                <ion-item>
+                  <ion-label> 
+                    <ion-icon name="at" ></ion-icon>
+                  </ion-label>
+                  <!-- <ion-label floating color="primary">Email</ion-label> -->
+                  <ion-input class="form-control" formControlName="email" type="email" required  placeholder="Email" >
+                  </ion-input>
+                </ion-item>
+                
+                <p ion-text *ngIf="signupForm.controls.email.pending" color="danger" padding-left>Checking if account exists...</p>
+                
+                <p ion-text *ngIf="(formErrors.email && submitted) || (signupForm.controls.email.errors && signupForm.controls.email.hasError('usernameTaken') && formErrors.email)" color="danger" padding-left>
+                  {{ formErrors.email }}
+                </p>
+                <p ion-text *ngIf="signupForm.controls.email.errors && signupForm.controls.email.hasError('usernameTaken') && !formErrors.email" color="danger" padding-left>
+                  {{ validationMessages['email']['usernameTaken'] }}
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-lg-6 col-xl-6 offset-lg-2 offset-xl-2>
+                <ion-item>
+                  <ion-label> 
+                    <ion-icon name="unlock" ></ion-icon>
+                  </ion-label>
+                  <!-- <ion-label floating color="primary">Password</ion-label> -->
+                  <ion-input class="form-control" formControlName="password" type="password" required *ngIf="!showPassword"  placeholder="Password"> </ion-input> 
+                  <ion-input class="form-control" formControlName="password" type="text" required *ngIf="showPassword"  placeholder="Password">  </ion-input>
+                 
+                </ion-item>
+                <p ion-text *ngIf="formErrors.password && submitted" color="danger" padding-left>
+                  {{ formErrors.password }}
+                </p>
+              </ion-col>
+              <ion-col class="showPassword" col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2>
+                <button ion-button clear (click)="toggleShowPassword()" block><span *ngIf="!showPassword">Show</span><span *ngIf="showPassword">Hide</span></button>
+              </ion-col>
+            </ion-row>
+            <!-- <ion-row>
+              <ion-col col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+                <ion-item class=" nolines">
+                  <ion-label >Experienced</ion-label>
+                  <ion-toggle  formControlName="isExperienced" color="primary"></ion-toggle>
+                </ion-item>
+                <p ion-text *ngIf="formErrors.isExperienced && submitted" color="danger" padding-left>
+                  {{ formErrors.isExperienced }}
+                </p>
+              </ion-col>
+            </ion-row> -->
+    
+            <ion-row>
+              <ion-col col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+                  <ion-item (click)="presentActionSheet()" class="fineprint nolines"  text-wrap>
+                  <!-- <button ion-button button-small clear block text-wrap (click)="presentActionSheet()" text-wrap  class="removeTextTransform"> -->
+                    By creating account, you agree to the MentorRank User Agreement, Privacy Policy, and Cookie Policy.
+                  <!-- </button> -->
+                  </ion-item>
+              </ion-col>  
+            </ion-row>
+            <ion-row>
+              <ion-col col-lg-8 col-xl-8 offset-lg-2 offset-xl-2>
+                  <button ion-button  type="submit" block color="secondary"> Create Account</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    
+          
+    
+          <!--<ion-item>
+            <ion-label floating color="primary">Confirm Password</ion-label>
+            <ion-input class="form-control" formControlName="passwordRepeat" type="password" required > 
+            </ion-input>
+          </ion-item>
+          <p ion-text *ngIf="formErrors.passwordRepeat && submitted" color="danger" padding-left>
+            {{ formErrors.passwordRepeat }}
+          </p>-->
+    
+        </ion-list>
+    
+        
+      </form>
+      
+      <button ion-button (click)="signInWithFB()">Sign up with Facebook</button>
+
+      <button ion-button (click)="signInWithGoogle()">Sign up with Google</button>
+    
+    </ion-content>
+    
