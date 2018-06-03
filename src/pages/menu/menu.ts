@@ -22,7 +22,7 @@ export interface PageInterface {
   selector: 'page-menu',
   templateUrl: 'menu.html',
 })
-export class MenuPage {
+export class MenuPage { 
 
     // the root nav is a child of the root app component
   // @ViewChild(Nav) gets a reference to the app's root nav
